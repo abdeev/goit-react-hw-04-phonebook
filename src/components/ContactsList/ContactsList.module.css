@@ -4,12 +4,3 @@
   padding: 15px;
   align-items: left;
 }
-.list_item {
-  display: flex;
-  margin-left: 20px;
-  justify-content: space-between;
-}
-.list_item:not(:last-child) {
-  border-bottom: #000 1px solid;
-  margin-bottom: 3px;
-}
