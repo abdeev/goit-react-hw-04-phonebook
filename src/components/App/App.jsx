@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import { getLocalStorage } from 'Utils/Localstorage';
+import { setLocalStorage } from 'Utils/Localstorage';
+
 import { ContactForm } from '../ContactForm/ContactForm';
 import Filter from '../Filter/Filter';
 import ContactsList from '../ContactsList/ContactsList';
 import css from './App.module.css';
-
-const LOCALSTORAGE_KEY = 'user-phonebook';
-
-const getLocalStorage = () => {
-  return JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-};
 
 export const App = () => {
   const [contacts, setContacts] = useState(
@@ -25,7 +22,7 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(contacts));
+    setLocalStorage(contacts);
   }, [contacts]);
 
   const handleInputContact = ({ name, number }) => {
